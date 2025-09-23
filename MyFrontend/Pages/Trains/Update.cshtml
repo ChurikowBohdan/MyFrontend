@@ -1,0 +1,42 @@
+﻿@page
+@model MyFrontend.Pages.Trains.UpdateModel
+
+<h2>UPDATE TRAIN</h2>
+
+<!-- Форма для ввода Id поезда -->
+<form method="post" asp-page-handler="Load">
+    <div class="mb-3">
+        <label for="Id" class="form-label">Enter Train Id</label>
+        <input id="Id" name="Id" type="text" class="form-control" placeholder="Enter train ID" />
+    </div>
+    <button type="submit" class="btn btn-primary">Load Train</button>
+</form>
+
+@if (Model.ShowForm)
+{
+    <hr />
+    <!-- Форма редактирования поезда -->
+    <form method="post" asp-page-handler="Update">
+        <!-- Скрытый input для Id, чтобы при POST Id не терялся -->
+        <input type="hidden" asp-for="Id" />
+
+        <div class="mb-3">
+            <label asp-for="Input.Name" class="form-label">Name</label>
+            <input asp-for="Input.Name" class="form-control" />
+            <span asp-validation-for="Input.Name" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Input.NumberOfSeats" class="form-label">Number of seats</label>
+            <input asp-for="Input.NumberOfSeats" type="number" class="form-control" />
+            <span asp-validation-for="Input.NumberOfSeats" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-success">Save Changes</button>
+        <a asp-page="Read" class="btn btn-secondary">Cancel</a>
+    </form>
+}
+
+
+
+
