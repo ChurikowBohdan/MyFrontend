@@ -3,17 +3,17 @@ using MyFrontend.DTOs;
 using System.Net.Http;
 using System.Net.Http.Json;
 
-namespace MyFrontend.Pages.Trains
+namespace MyFrontend.Pages.Stations
 {
     public class ReadModel : PageModel
     {
-        private readonly TrainService _trainService;
+        private readonly StationService _stationService;
 
-        public List<TrainReadDTO> Trains { get; set; } = new();
+        public List<StationReadDTO> Stations { get; set; } = new();
 
-        public ReadModel(TrainService trainService)
+        public ReadModel(StationService stationService)
         {
-            _trainService = trainService;
+            _stationService = stationService;
         }
 
         public async Task OnGetAsync()
@@ -21,13 +21,13 @@ namespace MyFrontend.Pages.Trains
 
             try
             {
-                Trains = await _trainService.GetAllAsync();
+                Stations = await _stationService.GetAllAsync();
             }
             catch (Exception ex)
             {
                 //  можно временно логировать ошибку в Output
                 Console.WriteLine("Ошибка при запросе API: " + ex.Message);
-                Trains = new List<TrainReadDTO>();
+                Stations = new List<StationReadDTO>();
             }
         }
     }

@@ -1,16 +1,15 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using MyFrontend.DTOs;
 
-namespace MyFrontend.Pages.Trains
+namespace MyFrontend.Pages.Stations
 {
     public class DeleteModel : PageModel
     {
-        private readonly TrainService _trainService;
+        private readonly StationService _stationService;
 
-        public DeleteModel(TrainService trainService)
+        public DeleteModel(StationService stationService)
         {
-            _trainService = trainService;
+            _stationService = stationService;
         }
 
         [BindProperty]
@@ -22,9 +21,8 @@ namespace MyFrontend.Pages.Trains
 
         public async Task<IActionResult> OnPostAsync()
         {
-            await _trainService.DeleteByIdAsync(Id);
+            await _stationService.DeleteByIdAsync(Id);
             return RedirectToPage("Read");
         }
     }
 }
-

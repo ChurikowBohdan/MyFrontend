@@ -9,6 +9,7 @@ builder.Services.AddHttpClient("MyApi", client =>
 });
 
 builder.Services.AddScoped<TrainService>();
+builder.Services.AddScoped<StationService>();
 
 var app = builder.Build();
 

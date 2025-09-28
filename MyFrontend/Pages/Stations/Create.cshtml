@@ -1,0 +1,31 @@
+﻿@page
+@model MyFrontend.Pages.Stations.CreateModel
+<h2>Add station</h2>
+
+<form method="post">
+    <div>
+        <label>Name</label>
+        <input asp-for="Input.Name" class="form-control" />
+        <span asp-validation-for="Input.Name" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label>Station city name</label>
+        <input asp-for="Input.StationCityName" class="form-control" />
+        <span asp-validation-for="Input.StationCityName" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label>Station district name</label>
+        <input asp-for="Input.StationDistrictName" class="form-control" />
+        <span asp-validation-for="Input.StationDistrictName" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label>Nuber of platforms</label>
+        <input asp-for="Input.NumberOfPlatforms" class="form-control" min="1" />
+        <span asp-validation-for="Input.NumberOfPlatforms" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>

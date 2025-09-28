@@ -1,0 +1,35 @@
+﻿@page
+@model MyFrontend.Pages.Stations.ReadModel
+
+<h2>LIST OF STATIONS</h2>
+
+@if (Model.Stations == null || !Model.Stations.Any())
+{
+    <p>No data.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Station city name</th>
+                <th>Station district name</th>
+                <th>Number of platforms</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var station in Model.Stations)
+            {
+                <tr>
+                    <td>@station.StationId</td>
+                    <td>@station.Name</td>
+                    <td>@station.StationCityName</td>
+                    <td>@station.StationDistrictName</td>
+                    <td>@station.NumberOfPlatforms</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

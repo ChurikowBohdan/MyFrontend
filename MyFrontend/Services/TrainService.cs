@@ -22,7 +22,6 @@ public class TrainService
 
         if (!response.IsSuccessStatusCode)
         {
-            // Ошибка при создании поезда
             throw new ApplicationException($"Error: {response.StatusCode}");
         }
     }

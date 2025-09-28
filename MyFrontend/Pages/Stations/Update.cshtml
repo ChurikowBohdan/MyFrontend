@@ -1,0 +1,47 @@
+﻿@page
+@model MyFrontend.Pages.Stations.UpdateModel
+
+<h2>UPDATE STATION</h2>
+
+<!-- Форма для ввода Id поезда -->
+<form method="post" asp-page-handler="Load">
+    <div class="mb-3">
+        <label for="Id" class="form-label">Enter Station Id</label>
+        <input id="Id" name="Id" type="text" class="form-control" placeholder="Enter station ID" />
+    </div>
+    <button type="submit" class="btn btn-primary">Load Station</button>
+</form>
+
+@if (Model.ShowForm)
+{
+    <hr />
+    <!-- Форма редактирования поезда -->
+    <form method="post" asp-page-handler="Update">
+        <!-- Скрытый input для Id, чтобы при POST Id не терялся -->
+        <input type="hidden" asp-for="Id" />
+
+        <div class="mb-3">
+            <label asp-for="Input.Name" class="form-label">Name</label>
+            <input asp-for="Input.Name" class="form-control" />
+            <span asp-validation-for="Input.Name" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Input.StationDistrictName" class="form-label">Station District Name</label>
+            <input asp-for="Input.StationDistrictName" class="form-control" />
+            <span asp-validation-for="Input.StationDistrictName" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Input.StationCityName" class="form-label">Station City Name</label>
+            <input asp-for="Input.StationCityName" class="form-control" />
+            <span asp-validation-for="Input.StationCityName" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Input.NumberOfPlatforms" class="form-label">Number of platforms</label>
+            <input asp-for="Input.NumberOfPlatforms" type="number" class="form-control" />
+            <span asp-validation-for="Input.NumberOfPlatforms" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-success">Save Changes</button>
+        <a asp-page="Read" class="btn btn-secondary">Cancel</a>
+    </form>
+}

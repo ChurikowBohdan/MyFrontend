@@ -22,6 +22,15 @@
                             <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/AdminRegistration">Admin Registraion</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/CustomerRegistration">Customer Registraion</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Login">Login</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
                         </li>
                         <li class="nav-item dropdown">
@@ -33,6 +42,17 @@
                                 <li><a class="dropdown-item" asp-page="/Trains/Create">Add Train</a></li>
                                 <li><a class="dropdown-item" asp-page="/Trains/Update">Update Train</a></li>
                                 <li><a class="dropdown-item" asp-page="/Trains/Delete">Delete Train</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark" href="#" id="stationsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Stations
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="stationsDropdown">
+                                <li><a class="dropdown-item" asp-page="/Stations/Read">All Stations</a></li>
+                                <li><a class="dropdown-item" asp-page="/Stations/Create">Add Station</a></li>
+                                <li><a class="dropdown-item" asp-page="/Stations/Update">Update Station</a></li>
+                                <li><a class="dropdown-item" asp-page="/Stations/Delete">Delete Station</a></li>
                             </ul>
                         </li>
                     </ul>

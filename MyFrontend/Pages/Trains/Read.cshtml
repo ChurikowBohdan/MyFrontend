@@ -1,11 +1,11 @@
 ﻿@page
-@model ReadModel
+@model MyFrontend.Pages.Trains.ReadModel
 
 <h2>LIST OF TRAINS</h2>
 
 @if (Model.Trains == null || !Model.Trains.Any())
 {
-    <p>Нет данных.</p>
+    <p>No data.</p>
 }
 else
 {
