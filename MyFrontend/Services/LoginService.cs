@@ -1,4 +1,5 @@
 ﻿using MyFrontend.DTOs;
+using System.Net.Http.Json;
 
 namespace MyFrontend.Services
 {
@@ -11,14 +12,18 @@ namespace MyFrontend.Services
             _http = httpClientFactory.CreateClient("MyApi");
         }
 
-        public async Task CreateAsync(RegistrationDTO data)
+        public async Task<TokenResponseDTO> CreateAsync(LoginDTO data)
         {
-            var response = await _http.PostAsJsonAsync("api/register", data);
+            var response = await _http.PostAsJsonAsync("api/auth/login", data);
 
             if (!response.IsSuccessStatusCode)
             {
                 throw new ApplicationException($"Error: {response.StatusCode}");
             }
+
+            var tokenDto = await response.Content.ReadFromJsonAsync<TokenResponseDTO>();
+            if (tokenDto is null) throw new ApplicationException("Empty token response");
+            return tokenDto;
         }
     }
 }

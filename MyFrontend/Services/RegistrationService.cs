@@ -13,7 +13,7 @@ namespace MyFrontend.Services
 
         public async Task CreateAdminAsync(RegistrationDTO data)
         {
-            var response = await _http.PostAsJsonAsync("api/register/admin", data);
+            var response = await _http.PostAsJsonAsync("api/auth/register/admin", data);
 
             if (!response.IsSuccessStatusCode)
             {
@@ -22,7 +22,7 @@ namespace MyFrontend.Services
         }
         public async Task CreateCustomerAsync(RegistrationDTO data)
         {
-            var response = await _http.PostAsJsonAsync("api/register/customer", data);
+            var response = await _http.PostAsJsonAsync("api/auth/register/customer", data);
 
             if (!response.IsSuccessStatusCode)
             {
